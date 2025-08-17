@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+import React, { useEffect, useState } from 'react';
+>>>>>>> 962aab11080053022f1034f702249c1adaae55b5
 import Navbar from './components/Navbar';
 import Card from './components/Card';
 
 function App() {
+<<<<<<< HEAD
   const [peeps, setpeeps] = useState([
    {
     IMAGE: "https://i.pinimg.com/736x/34/18/df/3418df94a9026bf852e26d59803ca10d.jpg",
@@ -72,9 +77,39 @@ function App() {
     <div>
       <Navbar peeps={peeps}/>
       <Card peeps={peeps} handleClick={handleClick} />
+=======
+  const url = "https://fakestoreapi.com/products/";
+  const [Card, setCard] = useState([]);
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log("Server ka data: ", data);
+        setProducts(data);
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+ 
+
+  return (
+    <div>
+      <Navbar></Navbar>
+      <Card></Card>
+>>>>>>> 962aab11080053022f1034f702249c1adaae55b5
     </div>
   );
 }
 
 export default App;
+<<<<<<< HEAD
  
+=======
+>>>>>>> 962aab11080053022f1034f702249c1adaae55b5
